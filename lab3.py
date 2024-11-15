@@ -1,10 +1,13 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Titration of H3PO4 with NaOH
 
+# todo: add minor ticks and grid lines 
+
 dV = 0.25 # ml
 
-pH_values = [2.5, # ml
+pH_values = [2.5,
              2.5,
              2.52,
              2.54,
@@ -89,5 +92,22 @@ pH_values = [2.5, # ml
              11.79,
              11.81]
              
-plt.plot(pH_values)
+
+# x-axis values
+
+X = [dV*i for i in range(len(pH_values))]
+
+
+plt.plot(X, pH_values, label='pH')
+
+# Adding labels and title
+plt.title('')
+plt.xlabel('Объем 0.1М NaOH, мл', fontsize = 24)
+plt.ylabel('pH раствора', fontsize = 24)
+
+plt.xticks(np.arange(0, 22, 1), fontsize = 17)
+plt.yticks(np.arange(2, 12.5, 1), fontsize = 17)
+
+
+
 plt.show()
